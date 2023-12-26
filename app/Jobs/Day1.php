@@ -36,7 +36,6 @@ class Day1 implements ShouldQueue
                 continue;
             }
 
-            echo "{$row}\n";
             preg_match_all('/(?=(0|1|2|3|4|5|6|7|8|9|one|two|three|four|five|six|seven|eight|nine))/', $row, $matches);
             $numbers = [];
             foreach($matches[1] as $match) {
@@ -49,17 +48,11 @@ class Day1 implements ShouldQueue
             }
 
             $numbers = implode('', $numbers);
-            echo "{$numbers}\n";
-
             $numbers = str_split(only_numbers($numbers));
             $first = $numbers[0];
             $last = $numbers[sizeof($numbers) - 1];
 
             $number = (int) "{$first}{$last}";
-
-            echo "{$number}\n";
-            echo "----------------\n";
-
             $sum += $number;
         }
 
